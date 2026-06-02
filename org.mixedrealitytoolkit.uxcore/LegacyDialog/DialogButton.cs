@@ -17,7 +17,7 @@ namespace MixedReality.Toolkit.UX.Deprecated
     /// be copied to the application's code base, and maintained independently by the application developer. Otherwise, it is strongly recommended 
     /// that the application be updated to use the new <see cref="MixedReality.Toolkit.UX.DialogPool">DialogPool</see> system.
     /// </remarks>
-    [SerializeField, Tooltip("The TextMeshPro component for displaying text on the button itself.")]
+    [field: SerializeField, Tooltip("The TextMeshPro component for displaying text on the button itself.")]
     [Obsolete("This legacy dialog system has been deprecated. Please migrate to the new dialog system, see MixedReality.Toolkit.UX.DialogPool for more details.")]
     public class DialogButton : MonoBehaviour
     {

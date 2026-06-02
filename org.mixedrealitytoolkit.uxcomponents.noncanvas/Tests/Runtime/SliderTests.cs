@@ -11,7 +11,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 using HandshapeId = MixedReality.Toolkit.Input.HandshapeTypes.HandshapeId;
 
@@ -482,7 +482,7 @@ namespace MixedReality.Toolkit.UX.Runtime.Tests
             Debug.Assert(slider.Value == 0.5, "Slider should have value 0.5 at start");
 
             // Single mode needed to reject incoming interactors once we are already selected.
-            Debug.Assert(slider.selectMode == InteractableSelectMode.Single, "Slider should be in single select mode");
+            Debug.Assert(slider.selectMode == UnityEngine.XR.Interaction.Toolkit.Interactables.InteractableSelectMode.Single, "Slider should be in single select mode");
 
             var rightHand = new TestHand(Handedness.Right);
             Vector3 initialPos = sliderVisuals.Handle.position;
@@ -528,7 +528,7 @@ namespace MixedReality.Toolkit.UX.Runtime.Tests
             Debug.Assert(slider.Value == 0.5, "Slider should have value 0.5 at start");
 
             // Single mode needed to reject incoming interactors once we are already selected.
-            Debug.Assert(slider.selectMode == InteractableSelectMode.Single, "Slider should be in single select mode");
+            Debug.Assert(slider.selectMode == UnityEngine.XR.Interaction.Toolkit.Interactables.InteractableSelectMode.Single, "Slider should be in single select mode");
 
             var rightHand = new TestHand(Handedness.Right);
             Vector3 initialPos = new Vector3(0.0f, 0, 0.5f);

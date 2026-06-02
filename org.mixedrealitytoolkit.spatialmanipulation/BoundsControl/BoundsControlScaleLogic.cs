@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 namespace MixedReality.Toolkit.SpatialManipulation
 {
@@ -19,7 +19,7 @@ namespace MixedReality.Toolkit.SpatialManipulation
         private Vector3 diagonalDir;
 
         /// <inheritdoc />
-        public override void Setup(List<IXRSelectInteractor> interactors, IXRSelectInteractable interactable, MixedRealityTransform currentTarget)
+        public override void Setup(List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor> interactors, UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable interactable, MixedRealityTransform currentTarget)
         {
             base.Setup(interactors, interactable, currentTarget);
             currentHandle = interactable.transform.GetComponent<BoundsHandleInteractable>();
@@ -30,7 +30,7 @@ namespace MixedReality.Toolkit.SpatialManipulation
         }
 
         /// <inheritdoc />
-        public override Vector3 Update(List<IXRSelectInteractor> interactors, IXRSelectInteractable interactable, MixedRealityTransform currentTarget, bool centeredAnchor)
+        public override Vector3 Update(List<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor> interactors, UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable interactable, MixedRealityTransform currentTarget, bool centeredAnchor)
         {
             base.Update(interactors, interactable, currentTarget, centeredAnchor);
 
