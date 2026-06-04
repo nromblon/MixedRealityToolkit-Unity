@@ -1286,10 +1286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   features:
   - {fileID: 5432068177160364664}
-  - {fileID: -2941642707980314643}
   - {fileID: 5800620048986908060}
   - {fileID: 819754567333565680}
   - {fileID: 474827142986614695}
+  - {fileID: -2941642707980314643}
   - {fileID: -1153998423691165828}
   - {fileID: 3938644977433773874}
   - {fileID: 5420324578598372024}
@@ -1315,7 +1315,7 @@ MonoBehaviour:
     m_List: 00000000
   m_depthSubmissionMode: 1
   m_spacewarpMotionVectorTextureFormat: 0
-  m_optimizeBufferDiscards: 0
+  m_optimizeBufferDiscards: 1
   m_symmetricProjection: 0
   m_optimizeMultiviewRenderRegions: 0
   m_multiviewRenderRegionsOptimizationMode: 0
@@ -1430,10 +1430,10 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: 
   features:
-  - {fileID: 9142680366184332805}
   - {fileID: -6240091031804019219}
   - {fileID: 9131412911166342992}
   - {fileID: 7857441528894569134}
+  - {fileID: 9142680366184332805}
   - {fileID: -6721245992633314680}
   - {fileID: 4201797332658246624}
   - {fileID: 4294374462335302092}
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b862ee14fb479fbfe5fffe655d3ed3, type: 3}
   m_Name: MetaQuestTouchProControllerProfile Android
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Meta Quest Touch Pro Controller Profile
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.metaquestpro
@@ -2375,7 +2375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7365b139f7aec43b23d26b7a48b5a6, type: 3}
   m_Name: MetaQuestTouchPlusControllerProfile Android
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Meta Quest Touch Plus Controller Profile
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.metaquestplus

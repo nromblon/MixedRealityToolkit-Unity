@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Mixed Reality Toolkit Organization
-  productName: MRTK3 Sample
+  companyName: sumilab_romblon
+  productName: Gaze XR Calibration
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -144,9 +144,12 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 3.0.0
+  bundleVersion: 1.0.0
   preloadedAssets:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e61946fb8f8ff5e418d6ebb56cca2034, type: 2}
+  - {fileID: 11400000, guid: c677e5c4eb85b7849a8da406775c299d, type: 2}
+  - {fileID: -1613870050629060938, guid: 90a3b98e6a849104285d1183acd66c0b, type: 2}
+  - {fileID: 1479897323088787677, guid: a03b04948b0cbde4498320e6e1bd5cd6, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -168,7 +171,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Android: org.MixedRealityToolkit.MRTK3Sample
+    Android: org.sumilab_romblon.gazexrcalibration
     Standalone: org.MixedRealityToolkit.MRTK3Sample
   buildNumber:
     Standalone: 0
@@ -582,7 +585,10 @@ PlayerSettings:
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetGroupLoadStoreDebugModeSettings: []
   m_BuildTargetNormalMapEncoding: []
-  m_BuildTargetDefaultTextureCompressionFormat: []
+  m_BuildTargetDefaultTextureCompressionFormat:
+  - serializedVersion: 3
+    m_BuildTarget: Android
+    m_Formats: 01000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
