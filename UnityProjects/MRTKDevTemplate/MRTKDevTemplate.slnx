@@ -1,9 +1,11 @@
 ﻿<Solution>
+  <Project Path="MCPForUnity.Runtime.csproj" />
   <Project Path="MixedReality.Toolkit.UXCore.Editor.csproj" />
   <Project Path="MixedReality.Toolkit.Data.csproj" />
   <Project Path="MixedReality.Toolkit.Examples.Build.csproj" />
   <Project Path="MixedReality.Toolkit.UXComponents.Runtime.Tests.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="MCPForUnity.Editor.csproj" />
   <Project Path="MixedReality.Toolkit.Speech.Windows.csproj" />
   <Project Path="MixedReality.Toolkit.Accessibility.csproj" />
   <Project Path="MixedReality.Toolkit.Input.csproj" />
@@ -42,5 +44,6 @@
   <Project Path="MixedReality.Toolkit.UXComponents.Editor.Tests.csproj" />
   <Project Path="MixedReality.Toolkit.StandardAssets.Editor.Tests.csproj" />
   <Project Path="MixedReality.Toolkit.Data.Editor.Tests.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="MixedReality.Toolkit.UXComponents.csproj" />
 </Solution>
