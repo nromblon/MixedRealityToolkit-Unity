@@ -23,6 +23,7 @@
   <Project Path="MixedReality.Toolkit.Tools.csproj" />
   <Project Path="MixedReality.Toolkit.Speech.Windows.Editor.csproj" />
   <Project Path="MixedReality.Toolkit.UXComponents.NonCanvas.Runtime.Tests.csproj" />
+  <Project Path="MixedReality.Toolkit.UXCore.Editor.Tests.csproj" />
   <Project Path="MixedReality.Toolkit.Diagnostics.csproj" />
   <Project Path="MixedReality.Toolkit.Diagnostics.Runtime.Tests.csproj" />
   <Project Path="MixedReality.Toolkit.Diagnostics.Editor.Tests.csproj" />
