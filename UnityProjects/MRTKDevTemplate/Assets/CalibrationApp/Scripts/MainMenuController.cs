@@ -20,10 +20,12 @@ namespace CalibrationApp
         [SerializeField] private GameObject dismissButton;
         [SerializeField] private GameObject sensorOffsetButton;
         [SerializeField] private GameObject recordingFrustumButton;
+        [SerializeField] private GameObject gaze360TestButton;
 
         [Header("Scene names (must be in Build Settings)")]
         [SerializeField] private string sensorOffsetScene = "CalibSensorOffset";
         [SerializeField] private string recordingFrustumScene = "CalibRecordingFrustum";
+        [SerializeField] private string gaze360TestScene = "PL_360";
 
         void Start()
         {
@@ -33,6 +35,7 @@ namespace CalibrationApp
             Hook(dismissButton, DismissInstructions);
             Hook(sensorOffsetButton, () => SceneManager.LoadScene(sensorOffsetScene));
             Hook(recordingFrustumButton, () => SceneManager.LoadScene(recordingFrustumScene));
+            Hook(gaze360TestButton, () => SceneManager.LoadScene(gaze360TestScene));
         }
 
         private static void Hook(GameObject buttonObj, UnityAction action)
