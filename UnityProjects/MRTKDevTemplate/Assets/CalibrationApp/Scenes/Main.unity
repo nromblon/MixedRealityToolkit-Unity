@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 463718096}
   - component: {fileID: 463718095}
   - component: {fileID: 463718094}
+  - component: {fileID: 463718097}
   m_Layer: 0
   m_Name: NavigationCanvas
   m_TagString: Untagged
@@ -440,6 +441,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &463718097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463718092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81c09d9e30ccdf45a25fe8da8db47a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FaceUserOnSpawn
+  distance: 1
+  verticalOffset: -0.1
+  faceUser: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1491,7 @@ GameObject:
   - component: {fileID: 1795138863}
   - component: {fileID: 1795138862}
   - component: {fileID: 1795138861}
+  - component: {fileID: 1795138864}
   m_Layer: 0
   m_Name: InstructionsCanvas
   m_TagString: Untagged
@@ -1569,6 +1586,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1795138864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795138859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81c09d9e30ccdf45a25fe8da8db47a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FaceUserOnSpawn
+  distance: 1
+  verticalOffset: -0.1
+  faceUser: 1
 --- !u!1001 &1796528720
 PrefabInstance:
   m_ObjectHideFlags: 0

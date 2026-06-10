@@ -15,8 +15,6 @@ namespace CalibrationApp
         [SerializeField] private ModeSelector modeSelector;
         [SerializeField] private Transform markerRig;
         [SerializeField] private GameObject markerPrefab;
-        [Tooltip("XROrigin Camera Offset transform, used to convert XR eye-node local positions to world space.")]
-        [SerializeField] private Transform cameraOffset;
 
         /// <summary>Quest 3 fixed IPD (63.5mm) divided by 2.</summary>
         private const float HalfIpd = 0.03175f;
@@ -35,6 +33,22 @@ namespace CalibrationApp
 
         void Start()
         {
+            StartCoroutine(InitialSpawnWhenReady());
+        }
+
+        System.Collections.IEnumerator InitialSpawnWhenReady()
+        {
+            if (Camera.main == null) yield break;
+            Transform cam = Camera.main.transform;
+
+            float timeout = 2f;
+            while (cam.position.sqrMagnitude < 1e-4f && timeout > 0f)
+            {
+                timeout -= Time.deltaTime;
+                yield return null;
+            }
+            yield return null; // one extra frame for safety
+
             if (modeSelector != null) Rebuild(modeSelector.CurrentMode);
         }
 
@@ -80,11 +94,11 @@ namespace CalibrationApp
                 XRNodeState s = nodeStates[i];
                 if (s.nodeType == node && s.TryGetPosition(out Vector3 local))
                 {
+                    Debug.Log($"[MarkerSpawner] center.pos={center.position}  node local={local}");
                     // X offset is reliable; Y/Z may collapse to centre eye. Reject a zero result.
                     if (local.sqrMagnitude > 1e-8f)
                     {
-                        Transform basis = cameraOffset != null ? cameraOffset : center;
-                        return basis.TransformPoint(local);
+                        return center.position + center.right * local.x;
                     }
                 }
             }
