@@ -453,8 +453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81c09d9e30ccdf45a25fe8da8db47a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FaceUserOnSpawn
-  distance: 1
-  verticalOffset: -0.1
+  distance: 0.4
+  verticalOffset: -0.04
   faceUser: 1
 --- !u!1 &705507993
 GameObject:
@@ -1598,8 +1598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81c09d9e30ccdf45a25fe8da8db47a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FaceUserOnSpawn
-  distance: 1
-  verticalOffset: -0.1
+  distance: 0.4
+  verticalOffset: -0.05
   faceUser: 1
 --- !u!1001 &1796528720
 PrefabInstance:

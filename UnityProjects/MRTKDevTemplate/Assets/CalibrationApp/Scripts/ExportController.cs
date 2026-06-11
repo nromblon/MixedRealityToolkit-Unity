@@ -54,7 +54,7 @@ namespace CalibrationApp
             File.WriteAllText(path, sb.ToString());
             Debug.Log("[ExportController] Exported calibration session to: " + path);
 
-            if (confirmText != null) confirmText.text = "Saved: " + fileName;
+            if (confirmText != null) confirmText.text = "Saved: " + path + fileName;
         }
     }
 }

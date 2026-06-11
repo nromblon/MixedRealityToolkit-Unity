@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using TMPro;
+using System.Linq;
 
 namespace CalibrationApp
 {
@@ -17,7 +18,8 @@ namespace CalibrationApp
         [SerializeField] private GameObject markerPrefab;
 
         /// <summary>Quest 3 fixed IPD (63.5mm) divided by 2.</summary>
-        private const float HalfIpd = 0.03175f;
+        private float HalfIpd = 0.03175f;
+        //private bool hasRuntimeIpdLogged = false;
 
         private readonly List<XRNodeState> nodeStates = new List<XRNodeState>();
 
@@ -34,6 +36,7 @@ namespace CalibrationApp
         void Start()
         {
             StartCoroutine(InitialSpawnWhenReady());
+
         }
 
         System.Collections.IEnumerator InitialSpawnWhenReady()
@@ -80,30 +83,43 @@ namespace CalibrationApp
         private Vector3 GetRecordingPosition(RecordingMode mode)
         {
             Transform center = Camera.main != null ? Camera.main.transform : transform;
-
+            Debug.Log($"[MarkerSpawner] Center eye position: {center.position}");
             if (mode == RecordingMode.Binocular)
                 return center.position;
 
             XRNode node = mode == RecordingMode.LeftEye ? XRNode.LeftEye : XRNode.RightEye;
             float sign = mode == RecordingMode.LeftEye ? -1f : 1f;
 
-            // Try the runtime eye node first.
-            InputTracking.GetNodeStates(nodeStates);
-            for (int i = 0; i < nodeStates.Count; i++)
-            {
-                XRNodeState s = nodeStates[i];
-                if (s.nodeType == node && s.TryGetPosition(out Vector3 local))
-                {
-                    Debug.Log($"[MarkerSpawner] center.pos={center.position}  node local={local}");
-                    // X offset is reliable; Y/Z may collapse to centre eye. Reject a zero result.
-                    if (local.sqrMagnitude > 1e-8f)
-                    {
-                        return center.position + center.right * local.x;
-                    }
-                }
-            }
+            //if (!hasRuntimeIpdLogged)
+            //{
+            //    hasRuntimeIpdLogged = true;
+            //    Vector3 leftEyePos = Vector3.zero;
+            //    Vector3 rightEyePos = Vector3.zero;
 
-            // Mandatory hardcoded IPD fallback (Quest 3).
+            //    var leftEyeDevice = new List<InputDevice>();
+            //    var rightEyeDevice = new List<InputDevice>();
+
+            //    InputDevices.GetDevicesAtXRNode(XRNode.LeftEye, leftEyeDevice);
+            //    InputDevices.GetDevicesAtXRNode(XRNode.RightEye, rightEyeDevice);
+
+            //    if (leftEyeDevice.Count > 0)
+            //    {
+            //        leftEyeDevice[0].TryGetFeatureValue(CommonUsages.devicePosition, out leftEyePos);
+            //    }
+            //    if (rightEyeDevice.Count > 0)
+            //    {
+            //        rightEyeDevice[0].TryGetFeatureValue(CommonUsages.devicePosition, out rightEyePos);
+            //    }
+
+            //    if (leftEyePos.sqrMagnitude > 1e-8f && rightEyePos.sqrMagnitude > 1e-8f)
+            //    {
+            //        float runtimeIpd = leftEyePos.x - rightEyePos.x;
+            //        Debug.Log($"[MarkerSpawner] leftEyePos={leftEyePos} || rightEyePos={rightEyePos}");
+            //        Debug.Log($"[MarkerSpawner] Runtime IPD={runtimeIpd * 1000f}mm");
+            //        HalfIpd = Mathf.Abs(runtimeIpd) / 2f;
+            //    }
+            //}
+
             return center.position + center.right * sign * HalfIpd;
         }
     }

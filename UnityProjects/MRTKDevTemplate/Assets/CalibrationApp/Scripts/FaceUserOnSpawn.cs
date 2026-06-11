@@ -14,7 +14,7 @@ public class FaceUserOnSpawn : MonoBehaviour
 
     System.Collections.IEnumerator PlaceNextFrame()
     {
-        yield return null; // wait one frame for tracking to update Camera.main
+        yield return new WaitForSeconds(0.5f); // wait one frame for tracking to update Camera.main
 
         Transform cam = Camera.main.transform;
 
