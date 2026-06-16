@@ -19,7 +19,8 @@ All interaction uses **MRTK3 pinch** via `PressableButton.OnClicked` (no XRI ray
 ## Requirements
 
 - **Unity 6000.3.16f1** (the version this project was authored in; other Unity 6 patch releases should work).
-- The **MRTK3** packages and **Pupil Labs Neon SDK** that ship in this fork (already present under `Packages/` and `Assets/PupilLabs/`).
+- The **MRTK3** packages — **vendored in this repo** under `Packages/` (no extra setup).
+- The **Pupil Labs Neon SDK** — **not redistributed here**; you must add it yourself (see [Pupil Labs SDK — required separately](#pupil-labs-sdk--required-separately)).
 - A **Meta Quest 3** with the Pupil Labs Neon attached, for on‑device use.
 
 ---
@@ -37,10 +38,21 @@ Everything authored for this app is under **`Assets/CalibrationApp/`**:
 | `Materials/` | `MarkerBright.mat`, `StabilityRing.mat` |
 | `Fonts/` | `NotoSansJP-VariableFont_wght.ttf`, `JP Dynamic SDF.asset`, `OFL.txt` |
 
-These depend on assets **outside** `CalibrationApp/` and must remain in the project:
-- `Assets/PupilLabs/` — the Neon SDK, the `MRTK NeonXR Variant`, `PL MRTK XR Rig Variant`, and `PL MRTKInputSimulator Variant` prefabs the scenes are built on.
-- `Assets/Plugins/` — Neon native libraries.
-- `Packages/` — MRTK3, XR Interaction Toolkit, TextMeshPro, Addressables.
+These depend on assets **outside** `CalibrationApp/`:
+- `Packages/org.mixedrealitytoolkit.*` — the 14 MRTK3 packages, **vendored (embedded)** into this repo so it opens standalone, without the original MRTK monorepo. BSD 3-Clause; license notices retained.
+- `Assets/PupilLabs/` — the Pupil Labs Neon integration, including the `MRTK NeonXR Variant`, `PL MRTK XR Rig Variant`, and `PL MRTKInputSimulator Variant` rig prefabs the scenes are built on. **Not included in this repository** (see below).
+- `Assets/Plugins/` — Neon native libraries (part of the Pupil Labs integration).
+- `Packages/manifest.json` also pulls `com.pupil-labs.neon-xr.core` from Pupil Labs' git repo at build time.
+
+### Pupil Labs SDK — required separately
+
+The Pupil Labs Neon content ships **without an explicit license**, so it is **not redistributed in this repository**: `Assets/PupilLabs/` is git-ignored, and `Assets/Plugins/` (Neon native libs) should be treated the same way. A fresh clone will therefore be **missing the Neon rig prefabs**, and the calibration scenes will show missing references until you add them.
+
+To run the app after cloning:
+1. Obtain the Pupil Labs Neon Unity integration from Pupil Labs (their MRTK3 fork / `neon-xr` project) and copy its `Assets/PupilLabs/` (and Neon `Assets/Plugins/`) into this project.
+2. Reopen the scenes — the rig references will resolve.
+
+`com.pupil-labs.neon-xr.core` is already wired as a git dependency in `manifest.json`, so the core gaze scripts download automatically; only the in-`Assets` content must be added manually.
 
 ---
 
@@ -103,10 +115,11 @@ All UI text is bilingual (EN/JP). Japanese glyphs are supplied by **Noto Sans JP
 
 ## Getting started
 
-1. Open the project in **Unity 6000.3.16f1**; let Package Manager restore dependencies.
-2. Open `Assets/CalibrationApp/Scenes/Main.unity`.
-3. Press Play to test in‑editor with the MRTK Input Simulator, or build for **Android** (Quest 3) via *File ▸ Build Settings*.
-4. (Optional) If Japanese shows as missing boxes, run the font menu item above.
+1. Add the Pupil Labs SDK content (see [Pupil Labs SDK — required separately](#pupil-labs-sdk--required-separately)) — required for the rig.
+2. Open the project in **Unity 6000.3.16f1**; the vendored MRTK packages and git dependencies resolve automatically.
+3. Open `Assets/CalibrationApp/Scenes/Main.unity`.
+4. Press Play to test in‑editor with the MRTK Input Simulator, or build for **Android** (Quest 3) via *File ▸ Build Settings*.
+5. (Optional) If Japanese shows as missing boxes, run the font menu item above.
 
 ---
 
@@ -130,9 +143,9 @@ These are development conveniences; you may delete them before publishing if you
 
 ## Licensing & attribution
 
-- **MRTK3** — MIT (Microsoft).
-- **Pupil Labs Neon SDK / MRTK3 fork** — see Pupil Labs' license; this app is a fork of their work and inherits those terms.
-- **Noto Sans JP** — SIL Open Font License; see `Assets/CalibrationApp/Fonts/OFL.txt`.
-- `MarkerBright.mat` / `StabilityRing.mat` are derived from Pupil Labs' calibration point material.
+- **MRTK3** — **BSD 3-Clause** (Mixed Reality Toolkit Contributors). Vendored under `Packages/` with its license/notice files retained.
+- **Pupil Labs Neon SDK** — the `neon-xr` repo and `Assets/PupilLabs` ship **without an explicit license** (all rights reserved by default), so they are **not redistributed here**. `Assets/PupilLabs/` is git-ignored; `neon-xr.core` is pulled from Pupil Labs' repo at build time. Internal research use is consistent with how Pupil Labs distributes the SDK, but confirm terms with Pupil Labs before redistributing any of their content.
+- **Noto Sans JP** — SIL Open Font License; keep `Assets/CalibrationApp/Fonts/OFL.txt`.
+- `MarkerBright.mat` / `StabilityRing.mat` are derived from Pupil Labs' calibration-point material; regenerate them from a neutral shader if you need them fully unencumbered.
 
-Before publishing publicly, confirm you are complying with the Pupil Labs SDK license for any redistributed third‑party content, and do **not** commit proprietary fonts (the `.gitignore` already guards `*.ttc`).
+Before publishing publicly: do **not** commit proprietary fonts (`.gitignore` guards `*.ttc`) or the Pupil Labs content (`.gitignore` excludes `Assets/PupilLabs`), and remove the `com.coplaydev.unity-mcp` dev dependency from `Packages/manifest.json` (it is an editor-automation tool, not part of the app).

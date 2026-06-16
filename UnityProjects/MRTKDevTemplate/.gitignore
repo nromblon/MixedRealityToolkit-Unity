@@ -18,3 +18,10 @@
 /[Aa]ssets/Screenshots.meta
 /[Aa]ssets/CalibrationApp/Fonts/*.ttc
 /[Aa]ssets/CalibrationApp/Fonts/*.ttc.meta
+
+# ===== Pupil Labs SDK (unlicensed - obtain from Pupil Labs, do not redistribute) =====
+/[Aa]ssets/PupilLabs/
+/[Aa]ssets/PupilLabs.meta
+# Neon OpenCVWrapper native libraries (part of the Pupil Labs SDK - obtain from Pupil Labs)
+/[Aa]ssets/Plugins/Android/libs/
+/[Aa]ssets/Plugins/x64/
