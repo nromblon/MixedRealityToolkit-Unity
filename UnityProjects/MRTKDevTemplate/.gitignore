@@ -1,0 +1,20 @@
+# ===== Added by CalibrationApp =====
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+[Cc]rashlytics/
+.vs/
+.idea/
+*.csproj
+*.sln
+*.user
+.DS_Store
+/[Aa]ssets/Screenshots/
+/[Aa]ssets/Screenshots.meta
+/[Aa]ssets/CalibrationApp/Fonts/*.ttc
+/[Aa]ssets/CalibrationApp/Fonts/*.ttc.meta
