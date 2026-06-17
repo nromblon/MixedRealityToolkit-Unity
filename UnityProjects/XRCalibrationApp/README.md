@@ -1,4 +1,4 @@
-＃Moved to separate repository：
+＃ Moved to separate repository：
 
 https://github.com/nromblon/XRAlign/
 ---
