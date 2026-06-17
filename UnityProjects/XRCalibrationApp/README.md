@@ -1,3 +1,6 @@
+＃Moved to separate repository：
+https://github.com/nromblon/XRAlign/
+---
 # Pupil Neon XR — Calibration App
 
 A Unity 6 / MRTK3 calibration application for the **Pupil Labs Neon** eye tracker running on **Meta Quest 3**. It provides two hand‑driven (MRTK3 pinch) calibration flows and exports calibration data as JSON.
