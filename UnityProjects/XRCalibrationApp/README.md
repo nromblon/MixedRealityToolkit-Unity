@@ -1,6 +1,4 @@
-＃ Moved to separate repository：
-
-https://github.com/nromblon/XRAlign/
+# Moved to separate repository：[XRAlign](https://github.com/nromblon/XRAlign/)
 ---
 # Pupil Neon XR — Calibration App
 
